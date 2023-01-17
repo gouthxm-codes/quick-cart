@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BsBagCheckFill } from "react-icons/bs";
+
 import { useStateContext } from "../context/StateContext";
-import { runFireWorks } from "../lib/utils";
-const success = () => {
+import { runFireworks } from "../lib/utils";
+
+const Success = () => {
   const { setCartItems, setTotalPrice, setTotalQuantiy } = useStateContext();
+
   useEffect(() => {
     localStorage.clear();
     setCartItems([]);
     setTotalPrice(0);
     setTotalQuantiy(0);
-    runFireWorks();
+    runFireworks();
   }, []);
+
   return (
     <div className="success-wrapper">
       <div className="success">
         <p className="icon">
           <BsBagCheckFill />
         </p>
-        <h2>Thank You For Your Order !</h2>
+        <h2>Thank you for your order!</h2>
         <p className="email-msg">Check your email inbox for the receipt.</p>
         <p className="description">
-          If you have any queries please email us
-          <a className="email" href="mailto:ninja777official@gmail.com">
+          If you have any queries, please email us
+          <a className="email" href="mailto:ninja777@gmail.com">
             ninja777official@gmail.com
           </a>
         </p>
@@ -36,4 +40,4 @@ const success = () => {
   );
 };
 
-export default success;
+export default Success;
